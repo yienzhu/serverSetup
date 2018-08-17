@@ -25,7 +25,7 @@ install_ssr(){
   	git clone -b master https://github.com/yienzhu/serverSetup.git && mv serverSetup shadowsocksr && cd shadowsocksr && chmod +x setup_cymysql.sh && chmod +x ./initcfg.sh && ./setup_cymysql.sh && ./initcfg.sh
 	#rm -rf go.sh
 	echo 'ssr安装完成'
-	sed -i -e "s/ssapi/legendsockssr/g" userapiconfig.py
+	sed -i -e "s/ssapi/$ssapi/g" userapiconfig.py
 	sed -i -e "s/ssserver/$ssserver/g" usermysql.json
 	sed -i -e "s/ssport/$ssport/g" usermysql.json
 	sed -i -e "s/ssuser/$ssuser/g" usermysql.json
