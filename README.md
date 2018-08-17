@@ -4,7 +4,11 @@ SSRR 3.2.2
 
 #### 1.安装
 
+一键安装
+
     wget -N --no-check-certificate https://raw.githubusercontent.com/yienzhu/serverSetup/master/go.sh;chmod +x go.sh;./go.sh
+    
+手动安装
 
     git clone https://github.com/ssrpanel/shadowsocksr.git
 
