@@ -21,6 +21,7 @@ install_ssr(){
   	#cd /root/
   	#rm -rf libsodium-1.0.16.tar.gz
 	#echo 'libsodium安装完成'
+	cd /root/
   	git clone -b master https://github.com/yienzhu/serverSetup.git && mv serverSetup shadowsocksr && cd shadowsocksr && chmod +x setup_cymysql.sh && chmod +x ./initcfg.sh && ./setup_cymysql.sh && ./initcfg.sh
 	rm -rf go.sh
 	echo 'ssr安装完成'
