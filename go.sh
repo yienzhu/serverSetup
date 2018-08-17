@@ -2,16 +2,16 @@
 [ $(id -u) != "0" ] && { echo "Error: You must be root to run this script"; exit 1; }
 install_ssr(){
 	clear
-	stty erase '^H' && read -p " API接口（mudbjson, sspanelv2, sspanelv3, sspanelv3ssr, glzjinmod, legendsockssr）:" ssapi
+	stty erase '^H' && read -p " API接口（mudbjson, sspanelv2, sspanelv3, sspanelv3ssr, glzjinmod, legendsockssr）:" legendsockssr
 	stty erase '^H' && read -p " mysql服务器地址:" ssserver
 	stty erase '^H' && read -p " mysql服务器端口:" ssport
 	stty erase '^H' && read -p " mysql服务器用户名:" ssuser
 	stty erase '^H' && read -p " mysql服务器密码:" sspass
 	stty erase '^H' && read -p " mysql服务器数据库名:" ssdb
-	stty erase '^H' && read -p " SSR节点ID（nodeid）:" ssnode
-	stty erase '^H' && read -p " 加密（method）:" ssmethod
-	stty erase '^H' && read -p " 协议（protocol）:" ssprotocol
-	stty erase '^H' && read -p " 混淆（obfs）:" ssobfs
+	stty erase '^H' && read -p " SSR节点ID（nodeid）:" 1
+	stty erase '^H' && read -p " 加密（method）:" chacha20-ietf
+	stty erase '^H' && read -p " 协议（protocol）:" origin
+	stty erase '^H' && read -p " 混淆（obfs）:" plain
 	clear
 	cd /root/
   	wget https://github.com/jedisct1/libsodium/releases/download/1.0.16/libsodium-1.0.16.tar.gz
@@ -21,8 +21,8 @@ install_ssr(){
   	cd /root/
   	rm -rf libsodium-1.0.16.tar.gz
 	echo 'libsodium安装完成'
-  	git clone -b master https://github.com/maxzh0916/Shadowsowcks1Click.git && mv Shadowsowcks1Click shadowsocksr && cd shadowsocksr && chmod +x setup_cymysql.sh && chmod +x ./initcfg.sh && ./setup_cymysql.sh && ./initcfg.sh
-	rm -rf Shadowsowcks1Click.sh
+  	git clone -b master https://github.com/yienzhu/serverSetup.git && mv serverSetup shadowsocksr && cd shadowsocksr && chmod +x setup_cymysql.sh && chmod +x ./initcfg.sh && ./setup_cymysql.sh && ./initcfg.sh
+	#rm -rf Shadowsowcks1Click.sh
 	echo 'ssr安装完成'
 	sed -i -e "s/ssapi/$ssapi/g" userapiconfig.py
 	sed -i -e "s/ssserver/$ssserver/g" usermysql.json
