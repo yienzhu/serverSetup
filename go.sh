@@ -8,10 +8,10 @@ install_ssr(){
 	stty erase '^H' && read -p " mysql服务器用户名:" ssuser
 	stty erase '^H' && read -p " mysql服务器密码:" sspass
 	stty erase '^H' && read -p " mysql服务器数据库名:" ssdb
-	stty erase '^H' && read -p " SSR节点ID（nodeid）:" 1
-	stty erase '^H' && read -p " 加密（method）:" chacha20-ietf
-	stty erase '^H' && read -p " 协议（protocol）:" origin
-	stty erase '^H' && read -p " 混淆（obfs）:" plain
+	stty erase '^H' && read -p " SSR节点ID（nodeid）:" ssnode
+	stty erase '^H' && read -p " 加密（method）:" ssmethod
+	stty erase '^H' && read -p " 协议（protocol）:" ssprotocol
+	stty erase '^H' && read -p " 混淆（obfs）:" ssobfs
 	clear
 	cd /root/
   	wget https://github.com/jedisct1/libsodium/releases/download/1.0.16/libsodium-1.0.16.tar.gz
