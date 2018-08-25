@@ -62,6 +62,14 @@ open_bbr(){
 	./bbr.sh
 }
 
+super_bbr(){
+	clear
+	cd
+	wget -N --no-check-certificate https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh
+	chmod +x tcp.sh
+	./tcp.sh
+}
+
 auto_reboot(){
 	clear
 	echo '设置每天几点几分重启节点'
@@ -82,7 +90,8 @@ echo ' 注意：此脚本基于centos7编写，其他系统可能会出问题'
 echo ' 1. 安装 SSR'
 echo ' 2. 安装 Libsodium'
 echo ' 3. 安装 BBR'
-echo ' 4. 设置定时重启（测试中）'
+echo ' 4. 安装 魔改BBR'
+echo ' 5. 设置定时重启（测试中）'
 stty erase '^H' && read -p " 请输入数字 [1-4]:" num
 case "$num" in
 	1)
@@ -94,7 +103,10 @@ case "$num" in
 	3)
 	open_bbr
 	;;
-	4)
+    4)
+	super_bbr
+	;;
+	5)
 	auto_reboot
 	;;
 	*)
